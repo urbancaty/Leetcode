@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string countAndSay(int n) {
+        string exp = "1", temp;
+        int len, count;
+        while(--n){
+            count = 1;
+            exp += 'a';
+            for(int i=1; i<exp.size(); i++){
+                if(exp[i] != exp[i-1]){
+                    temp.push_back(count+'0');
+                    temp.push_back(exp[i-1]);
+                    count = 1;
+                }else{
+                    count++;
+                }
+            }
+            exp = temp;
+            temp.clear();
+        } 
+        return exp;
+    }
+};
