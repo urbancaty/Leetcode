@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        string res;
+        int idxa = a.size(), idxb = b.size(), c = 0, sum;
+        while (idxa>0 || idxb>0) {
+            idxa--;
+            idxb--;
+            sum = (idxa<0 ? '0' : a[idxa]) + (idxb<0 ? '0' : b[idxb]) + c;
+            res += sum % 2 + '0';
+            c = sum / 2 - '0';
+        }
+        if (c) {
+            res += '1';
+        }
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
